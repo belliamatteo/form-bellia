@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {  //Importa FormBuilder e FormGroup
   FormBuilder,
-  FormGroup
+  FormGroup,
+  Validators
 } from '@angular/forms';
 @Component({
   selector: 'app-form-demo',
@@ -12,11 +13,11 @@ import {  //Importa FormBuilder e FormGroup
 export class FormDemoComponent implements OnInit {
   myForm: FormGroup;  //Dichiara una variabile di tipo FormGroup
   constructor(fb: FormBuilder) { //Il costruttore riceve come parametro il From Builder
-    
+
     /*Diciamo al FormBuilder di creare un FormGroup che conterrà un FormControl
      *Chiamato sku, con valore di default ABC123 */
     this.myForm = fb.group({
-      'sku': ['ABC123'], 'manu': ['MA E STRABILIANTE'], 'koala': ['EUCALIPTO']
+      'sku': ['', Validators.required], 'manu': ['', Validators.required], 'koala': ['', Validators.required]
     });
   }
   ngOnInit() {

@@ -1,19 +1,39 @@
 <div class="container">
- <h2>Demo Form: Sku</h2>
- <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="jumbotron">
-   <div class="form-group">
-     <label for="skuInput">SKU</label>
-     <input type="text" id="skuInput" placeholder="SKU" name="sku" 
-            [formControl]="myForm.controls['sku']" class="form-control">
+	<h2>Demo Form: Sku</h2>
+	<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="jumbotron">
+		<div class="form-group">
+			<label for="skuInput">SKU</label>
+            <input type="text" id="skuInput" placeholder="SKU" name="sku" [formControl]="myForm.controls['sku']" class="form-control">
             <hr>
             <label for="skuInput">manu</label>
-     <input type="text" id="skuInput" placeholder="SKU" name="sku" 
-            [formControl]="myForm.controls['manu']" class="form-control">
+            <input type="color" id="skuInput" placeholder="SKU" name="sku" [formControl]="myForm.controls['manu']" class="form-control">
             <hr>
             <label for="skuInput">koala</label>
-     <input type="text" id="skuInput" placeholder="SKU" name="sku" 
-            [formControl]="myForm.controls['koala']" class="form-control">
-   </div>
-   <button type="submit" class="btn btn-primary">Submit</button>
- </form>
+            <input type="image" id="skuInput" placeholder="SKU" name="sku" [formControl]="myForm.controls['koala']" class="form-control">
+        </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+<div *ngIf="!myForm.controls['sku'].valid" class="alert alert-danger">
+    SKU is invalid
+</div>
+<div *ngIf="myForm.controls['sku'].hasError('required')" class="alert alert-danger">
+    SKU is required
+</div>
+<div *ngIf="!myForm.controls['manu'].valid"class="alert alert-danger">
+    SKU is invalid
+</div>
+<div *ngIf="myForm.controls['manu'].hasError('required')"class="alert alert-danger">
+    SKU is required
+</div>
+<div *ngIf="!myForm.controls['koala'].valid"class="alert alert-danger">
+    SKU is invalid
+</div>
+<div *ngIf="myForm.controls['koala'].hasError('required')"class="alert alert-danger">
+    SKU is required
+</div>
+
+<div *ngIf="!myForm.valid"
+  class="alert alert-danger">Form is invalid</div>
 </div>
